@@ -17,8 +17,8 @@ export default function Page() {
       image: "/mcgreg.jpg",
       links: [
         {
-          name: "YouTube",
-          url: "https://www.youtube.com/@mCgReg861",
+          name: "Personal Website",
+          url: "https://mgseosolution.com/",
         },
         {
           name: "Instagram",
