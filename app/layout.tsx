@@ -16,7 +16,9 @@ export const metadata = {
   title: "MG | Mc Greg LinkHub",
   description: "Automation Builder | SEO | GoHighLevel | N8N",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+    ],
   },
 };
 
