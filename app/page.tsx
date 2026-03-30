@@ -24,21 +24,20 @@ export default function Page() {
     const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const fontSize = 14;
 
-    // ✅ handle resize properly
+    // ✅ FIX: declare BEFORE usage
+    let columns = 0;
+    let drops: number[] = [];
+
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // 🔥 recalc columns on resize (IMPORTANT FIX)
       columns = Math.floor(canvas.width / fontSize);
       drops = Array(columns).fill(1);
     };
 
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
-
-    let columns = Math.floor(canvas.width / fontSize);
-    let drops: number[] = Array(columns).fill(1);
 
     const draw = () => {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -70,21 +69,21 @@ export default function Page() {
   return (
     <main className="min-h-screen text-white flex flex-col items-center justify-center px-4 relative overflow-hidden">
 
-      {/* MATRIX CANVAS */}
+      {/* MATRIX BACKGROUND */}
       <canvas
         id="matrix"
         className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
       />
 
-      {/* GLASS CONTAINER */}
-      <div className="relative z-10 bg-black/70 backdrop-blur-sm p-6 rounded-2xl w-full max-w-sm flex flex-col items-center">
+      {/* CONTENT */}
+      <div className="relative z-10 bg-black/70 backdrop-blur-sm p-6 rounded-2xl w-full max-w-sm flex flex-col items-center shadow-xl">
 
         {/* PROFILE */}
         <div className="flex flex-col items-center gap-3 mb-8">
           <img
             src="/mcgreg.jpg"
             alt="Profile"
-            className="w-24 h-24 rounded-full object-cover"
+            className="w-24 h-24 rounded-full object-cover border border-green-500 shadow-[0_0_15px_#00ff00]"
           />
           <h1 className="text-xl font-bold">@mcgreg</h1>
           <p className="text-sm text-gray-400">Automation Builder</p>
