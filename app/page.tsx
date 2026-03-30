@@ -4,6 +4,7 @@ export default function Page() {
   { name: "OnlineJobs.ph", url: "https://www.onlinejobs.ph/jobseekers/info/2005695" },
   { name: "Upwork", url: "https://www.upwork.com/freelancers/011679636902fb2d51?mp_source=share" },
   { name: "YouTube", url: "http://www.youtube.com/@mCgReg861" },
+  { name: "Personal Website", url: "https://mgseosolution.com/" }
 ];
 
   return (
