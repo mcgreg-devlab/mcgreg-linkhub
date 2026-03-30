@@ -12,7 +12,7 @@ export default function Page() {
   ];
 
   useEffect(() => {
-    // ✅ FIX: prevent SSR crash
+    // ✅ Prevent SSR crash
     if (typeof window === "undefined") return;
 
     const canvas = document.getElementById("matrix");
@@ -21,14 +21,20 @@ export default function Page() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // ✅ FIX: handle resize properly
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    setCanvasSize();
+    window.addEventListener("resize", setCanvasSize);
 
     const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
 
-    const drops: number[] = Array(columns).fill(1);
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops: number[] = Array(columns).fill(1);
 
     function draw() {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -51,7 +57,10 @@ export default function Page() {
 
     const interval = setInterval(draw, 50);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("resize", setCanvasSize);
+    };
   }, []);
 
   return (
