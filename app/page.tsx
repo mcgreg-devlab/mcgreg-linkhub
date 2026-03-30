@@ -12,11 +12,14 @@ export default function Page() {
   ];
 
   useEffect(() => {
-    const canvas = document.getElementById("matrix");
-if (!(canvas instanceof HTMLCanvasElement)) return;
+    // ✅ FIX: prevent SSR crash
+    if (typeof window === "undefined") return;
 
-const ctx = canvas.getContext("2d");
-if (!ctx) return;
+    const canvas = document.getElementById("matrix");
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
