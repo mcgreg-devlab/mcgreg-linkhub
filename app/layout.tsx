@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "MG | Mc Greg LinkHub",
+  title: "Mc Greg LinkHub",
   description: "Automation Builder | SEO | GoHighLevel | N8N",
   icons: {
     icon: [
