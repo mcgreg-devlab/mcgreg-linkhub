@@ -85,8 +85,8 @@ export default function Page() {
             alt="Profile"
             className="w-24 h-24 rounded-full object-cover border border-green-500 shadow-[0_0_15px_#00ff00]"
           />
-          <h1 className="text-xl font-bold">@mcgreg</h1>
-          <p className="text-sm text-gray-400">Automation Builder</p>
+          <h1 className="text-xl font-bold">Mc Greg Gerodiaz</h1>
+          <p className="text-sm text-gray-400">SEO/WordPress|GoHighLevel Assistant|N8N (Intermediate-Level)</p>
         </div>
 
         {/* LINKS */}
