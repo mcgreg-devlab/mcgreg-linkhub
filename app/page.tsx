@@ -7,15 +7,16 @@ export default function Page() {
     { name: "LinkedIn", url: "https://www.linkedin.com/in/mcgreg-workflow-automation" },
     { name: "OnlineJobs.ph", url: "https://www.onlinejobs.ph/jobseekers/info/2005695" },
     { name: "Upwork", url: "https://www.upwork.com/freelancers/011679636902fb2d51?mp_source=share" },
-    { name: "YouTube", url: "http://www.youtube.com/@mCgReg861" },
+    { name: "YouTube", url: "https://www.youtube.com/@mCgReg861" },
     { name: "Personal Website", url: "https://mgseosolution.com/" }
   ];
 
   useEffect(() => {
-    const canvas = document.getElementById("matrix") as HTMLCanvasElement;
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("matrix");
+if (!(canvas instanceof HTMLCanvasElement)) return;
 
-    if (!ctx) return;
+const ctx = canvas.getContext("2d");
+if (!ctx) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -45,7 +46,7 @@ export default function Page() {
       }
     }
 
-    const interval = setInterval(draw, 33);
+    const interval = setInterval(draw, 50);
 
     return () => clearInterval(interval);
   }, []);
