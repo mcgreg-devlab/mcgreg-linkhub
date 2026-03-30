@@ -21,22 +21,26 @@ export default function Page() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // ✅ FIX: handle resize properly
+    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 14;
+
+    // ✅ handle resize properly
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
+      // 🔥 recalc columns on resize (IMPORTANT FIX)
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1);
     };
 
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
 
-    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 14;
-
     let columns = Math.floor(canvas.width / fontSize);
     let drops: number[] = Array(columns).fill(1);
 
-    function draw() {
+    const draw = () => {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -53,7 +57,7 @@ export default function Page() {
 
         drops[i]++;
       }
-    }
+    };
 
     const interval = setInterval(draw, 50);
 
@@ -69,7 +73,7 @@ export default function Page() {
       {/* MATRIX CANVAS */}
       <canvas
         id="matrix"
-        className="fixed top-0 left-0 w-full h-full z-0"
+        className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
       />
 
       {/* GLASS CONTAINER */}
