@@ -1,8 +1,8 @@
 export default function Page() {
   const links = [
-  { name: "LinkedIn", url: "www.linkedin.com/in/mcgreg-workflow-automation" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/mcgreg-workflow-automation" },
   { name: "OnlineJobs.ph", url: "https://www.onlinejobs.ph/jobseekers/info/2005695" },
-  { name: "Upwork", url: "https://www.upwork.com/freelancers/~011679636902fb2d51?mp_source=share },
+  { name: "Upwork", url: "https://www.upwork.com/freelancers/011679636902fb2d51?mp_source=share" },
   { name: "YouTube", url: "http://www.youtube.com/@mCgReg861" },
 ];
 
